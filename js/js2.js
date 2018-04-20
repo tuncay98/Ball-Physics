@@ -14,25 +14,32 @@ function click(){
 }
 ball.style.position= "relative"
 
-var z= 1;
-var c= 1;
+var z= Math.floor((Math.random()* 11)-5);
+var c= Math.floor((Math.random()* 11)-5);
 function set(){
+    var a= Math.floor((Math.random()* 255)+1);
+    var b= Math.floor((Math.random()* 255)+1);
+    var d= Math.floor((Math.random()* 255)+1);
     var x= ball.offsetLeft;
 var y= ball.offsetTop;
 x= x+(1*z);
 y= y+(1*c);
 
-if(x== window.innerWidth- 52){
-    z=-1;
+if(x>= window.innerWidth- 52){
+    z=-z;
+    ball.style.backgroundColor= "rgb("+ a+ ","+ b+ ","+ d+")"
 }
-if(y== window.innerHeight -52){
-    c= -1;
+if(y>= window.innerHeight -52){
+    c= -c;
+    ball.style.backgroundColor= "rgb("+ a+ ","+ b+ ","+ d+")"
 }
-if(y== 0){
-    c= 1;
+if(y<= 0){
+    c= c*-1;
+    ball.style.backgroundColor= "rgb("+ a+ ","+ b+ ","+ d+")"
 }
-if(x== 0){
-    z= 1;
+if(x<= 0){
+    z= z*-1;
+    ball.style.backgroundColor= "rgb("+ a+ ","+ b+ ","+ d+")"
 }
 
 ball.style.left= x+ "px"; 
